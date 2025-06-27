@@ -1,3 +1,5 @@
+package ConsoleVersion;
+
 /**
  * This class represents one to-do item
  */
@@ -6,7 +8,7 @@ public class Task {
     private boolean isDone; //is the task completed?
 
     /**
-     * Consturctor for the Task class
+     * Consturctor for the ConsoleVersion.Task class
      * @param description
      */
     public Task(String description) {

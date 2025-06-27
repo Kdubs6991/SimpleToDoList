@@ -1,41 +1,12 @@
+package ConsoleVersion;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
-
+public class TaskActions {
     private static ArrayList<Task> tasks = new ArrayList<Task>();
     private static Scanner scnr = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        boolean running = true;
-        while (running) {
-            printMenu();
-            String choice = scnr.nextLine();
-
-            switch (choice) {
-                case "1":
-                    addTask();
-                    break;
-                case "2":
-                    listTasks();
-                    break;
-                case "3":
-                    markTaskDone();
-                    break;
-                case "4":
-                    deleteTask();
-                    break;
-                case "5":
-                    running = false;
-                    System.out.println("Goodbye!");
-                    break;
-                default:
-                    System.out.println("Invalid choice");
-            }
-        }
-    }
-
-    private static void printMenu() {
+    public static void printMenu() {
         System.out.println("\n--- To-Do List ---");
         System.out.println("1. Add Task");
         System.out.println("2. View Tasks");
@@ -45,7 +16,7 @@ public class Main {
         System.out.print("Enter choice: ");
     }
 
-    private static void addTask(){
+    public static void addTask(){
         System.out.print("Enter task description: ");
         String desc = scnr.nextLine();
         Task task = new Task(desc);
@@ -53,7 +24,7 @@ public class Main {
         System.out.println("Task added.");
     }
 
-    private static void listTasks(){
+    public static void listTasks(){
         if (tasks.isEmpty()) {
             System.out.println("No tasks found.");
         } else {
@@ -63,24 +34,24 @@ public class Main {
         }
     }
 
-    private static void markTaskDone(){
+    public static void markTaskDone(){
         listTasks();
         System.out.print("Enter task number to mark as done: ");
         int num = Integer.parseInt(scnr.nextLine()) - 1;
         if (num >= 0 && num < tasks.size()) {
-            tasks.get(num - 1).markAsDone();
+            tasks.get(num).markAsDone();
             System.out.println("Task marked as done.");
         } else {
             System.out.println("Invalid task number.");
         }
     }
 
-    private static void deleteTask() {
+    public static void deleteTask() {
         listTasks();
         System.out.print("Enter task number to delete: ");
         int num = Integer.parseInt(scnr.nextLine()) - 1;
         if (num >= 0 && num < tasks.size()) {
-            tasks.remove(num - 1);
+            tasks.remove(num);
             System.out.println("Task deleted.");
         } else {
             System.out.println("Invalid task number.");
