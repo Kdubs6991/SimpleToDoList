@@ -4,7 +4,7 @@ import java.util.Scanner;
  * To-Do List App
  * (ConsoleVersion.Main Program)
  * @author Kaleb Wrigley
- * @version 1.1
+ * @version 1.2
  * @since 06-27-2025
  */
 public class Main {
